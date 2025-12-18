@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just One Question</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a; /* dark minimal */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #e5e7eb;
+    }
+
+    .box {
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 16px;
+      background: #020617;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      width: 320px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #cbd5f5;
+      margin-bottom: 28px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    #yes {
+      background: #22c55e;
+      color: #022c22;
+      margin-right: 10px;
+    }
+
+    #yes:hover {
+      transform: scale(1.08);
+    }
+
+    #no {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      position: relative;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 16px;
+      display: none;
+      color: #fda4af;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Hey, you 🌙</h1>
+    <p>
+      Life makes sense when you’re around.<br />
+      So here’s my cleanest line of code:
+      <br /><br />
+      <strong>Will you be mine?</strong>
+    </p>
+
+    <button id="yes" onclick="accept()">Yes</button>
+    <button id="no" onmouseover="escape()">No</button>
+
+    <div class="result" id="result">💍 Deal accepted. Forever starts now.</div>
+  </div>
+
+  <script>
+    function accept() {
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function escape() {
+      const btn = document.getElementById('no');
+      const x = Math.random() * 160 - 80;
+      const y = Math.random() * 160 - 80;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+</body>
+</html>
