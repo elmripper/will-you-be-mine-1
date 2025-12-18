@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Laxmi ❤️</title>
+
+  <!-- Unique Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at bottom, #0a1a2f, #000 70%);
+      overflow: hidden;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Moving stars */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://i.imgur.com/9QZ7Z8F.png');
+      animation: stars 60s linear infinite;
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    @keyframes stars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 5000px; }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 35px 30px;
+      width: 92%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.1rem;
+      margin-bottom: 10px;
+      color: #ffccd5;
+    }
+
+    p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .name {
+      font-weight: 500;
+      color: #ff6b81;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 22px;
+      border-radius: 25px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: #fff;
+    }
+
+    .yes:hover { transform: scale(1.07); }
+
+    .no {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hidden sections */
+    .hidden { display: none; }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    iframe {
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <div class="card" id="lock">
+    <h1>For Laxmi 💫</h1>
+    <p>Enter the secret word to continue<br><small style="opacity:0.7;">Hint: K</small></p>
+    <input type="password" id="pass" placeholder="Secret word" />
+    <button class="yes" onclick="unlock()">Unlock</button>
+  </div>
+
+  <!-- PROPOSAL SCREEN -->
+  <div class="card hidden" id="proposal">
+    <h1>Dear <span class="name">Laxmi</span> ❤️</h1>
+    <p>Under this galaxy, my heart chose you.
+    Will you walk with me forever?</p>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💍</button>
+      <button class="no" onclick="sayNo()">No 🙈</button>
+    </div>
+
+    <!-- Romantic Song (Offline / Local File) -->
+    <video id="song" class="hidden" width="100%" controls playsinline>
+      <source src="tera mera pyaar.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function unlock() {
+      const pass = document.getElementById('pass').value;
+      if (pass === 'khadoos') {
+        document.getElementById('lock').classList.add('hidden');
+        document.getElementById('proposal').classList.remove('hidden');
+      } else {
+        alert('Wrong secret 💔');
+      }
+    }
+
+    function sayYes() {
+      const song = document.getElementById('song');
+      song.classList.remove('hidden');
+      song.play();
+
+      song.onended = () => {
+        const msg = encodeURIComponent('Laxmi said YES ❤️🌌');
+        window.location.href = `https://wa.me/7051230693?text=${msg}`;
+      };
+    }
+
+    function sayNo() {
+      alert('I will wait… always 💫');
+    }
+  </script>
+
+</body>
+</html>
